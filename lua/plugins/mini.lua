@@ -18,5 +18,8 @@ return {
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
+
+    -- animate the cursor movement
+    require('mini.animate').setup()
   end,
 }
