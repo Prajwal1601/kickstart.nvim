@@ -168,8 +168,7 @@ return {
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      tsserver = {},
-      jdtls = {},
+      ts_ls = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
@@ -186,8 +185,6 @@ return {
       },
     }
 
-    -- Java Setup
-    require('java').setup()
     -- Ensure the servers and tools above are installed
     --  To check the current status of installed tools and/or manually install
     --  other tools, you can run
@@ -201,6 +198,8 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
+      'java-debug-adapter',
+      'java-test',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

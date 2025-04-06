@@ -84,6 +84,22 @@ return {
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
+    dap.configurations.java = {
+      {
+        name = 'Debug Launch (2GB)',
+        type = 'java',
+        request = 'launch',
+        vmArgs = '' .. '-Xmx2g ',
+      },
+      {
+        name = 'Debug Attach (8000)',
+        type = 'java',
+        request = 'attach',
+        hostName = '127.0.0.1',
+        port = 8000,
+      },
+    }
+
     -- Install golang specific config
     require('dap-go').setup {
       delve = {
